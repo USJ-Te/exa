@@ -52,6 +52,8 @@ lazy_static! {
         m.insert(".atom", '\u{e764}'); // 
         m.insert(".bashprofile", '\u{e615}'); // 
         m.insert(".bashrc", '\u{f489}'); // 
+        m.insert(".bash_profile", '\u{f489}'); // 
+        m.insert(".bash_logout", '\u{f489}'); // 
         m.insert(".git", '\u{f1d3}'); // 
         m.insert(".gitattributes", '\u{f1d3}'); // 
         m.insert(".gitconfig", '\u{f1d3}'); // 
@@ -62,9 +64,13 @@ lazy_static! {
         m.insert(".vimrc", '\u{e62b}'); // 
         m.insert(".vscode", '\u{e70c}'); // 
         m.insert(".zshrc", '\u{f489}'); // 
+        m.insert(".zshenv", '\u{f489}'); // 
+        m.insert(".zprofile", '\u{f489}'); // 
+        m.insert(".zlogin", '\u{f489}'); // 
+        m.insert(".zlogout", '\u{f489}'); // 
         m.insert("Cargo.lock", '\u{e7a8}'); // 
         m.insert("bin", '\u{e5fc}'); // 
-        m.insert("config", '\u{e5fc}'); // 
+        m.insert("config", '\u{e615}'); // 
         m.insert("docker-compose.yml", '\u{f308}'); // 
         m.insert("Dockerfile", '\u{f308}'); // 
         m.insert("ds_store", '\u{f179}'); // 
@@ -97,9 +103,10 @@ pub fn icon_for_file(file: &File<'_>) -> char {
     else if file.points_to_directory() {
         match file.name.as_str() {
             "bin"           => '\u{e5fc}', // 
+            "config"        => '\u{e5fc}', // 
             ".git"          => '\u{f1d3}', // 
             ".idea"         => '\u{e7b5}', // 
-            _               => '\u{f115}'  // 
+            _               => '\u{f74a}'  //
         }
     }
     else if let Some(icon) = extensions.icon_file(file) { icon }
@@ -116,7 +123,7 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "bash_history"  => '\u{f489}', // 
             "bash_profile"  => '\u{f489}', // 
             "bashrc"        => '\u{f489}', // 
-            "bat"           => '\u{f17a}', // 
+            "bat"           => '\u{fab2}', // 
             "bmp"           => '\u{f1c5}', // 
             "bz"            => '\u{f410}', // 
             "bz2"           => '\u{f410}', // 
@@ -164,7 +171,7 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "erb"           => '\u{e73b}', // 
             "erl"           => '\u{e7b1}', // 
             "ex"            => '\u{e62d}', // 
-            "exe"           => '\u{f17a}', // 
+            "exe"           => '\u{fab2}', // 
             "exs"           => '\u{e62d}', // 
             "fish"          => '\u{f489}', // 
             "flac"          => '\u{f001}', // 
@@ -200,7 +207,7 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "ico"           => '\u{f1c5}', // 
             "image"         => '\u{f1c5}', // 
             "iml"           => '\u{e7b5}', // 
-            "ini"           => '\u{f17a}', // 
+            "ini"           => '\u{fab2}', // 
             "ipynb"         => '\u{e606}', // 
             "iso"           => '\u{e271}', // 
             "jad"           => '\u{e256}', // 
@@ -231,10 +238,10 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "m"             => '\u{e61e}', // 
             "mm"            => '\u{e61d}', // 
             "m4a"           => '\u{f001}', // 
-            "markdown"      => '\u{f48a}', // 
-            "md"            => '\u{f48a}', // 
+            "markdown"      => '\u{f853}', // 
+            "md"            => '\u{f853}', // 
             "mjs"           => '\u{e74e}', // 
-            "mkd"           => '\u{f48a}', // 
+            "mkd"           => '\u{f853}', // 
             "mkv"           => '\u{f03d}', // 
             "mobi"          => '\u{e28b}', // 
             "mov"           => '\u{f03d}', // 
@@ -272,11 +279,11 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "rb"            => '\u{e21e}', // 
             "rdata"         => '\u{f25d}', // 
             "rdb"           => '\u{e76d}', // 
-            "rdoc"          => '\u{f48a}', // 
+            "rdoc"          => '\u{f853}', // 
             "rds"           => '\u{f25d}', // 
-            "readme"        => '\u{f48a}', // 
+            "readme"        => '\u{f853}', // 
             "rlib"          => '\u{e7a8}', // 
-            "rmd"           => '\u{f48a}', // 
+            "rmd"           => '\u{f853}', // 
             "rpm"           => '\u{e7bb}', // 
             "rs"            => '\u{e7a8}', // 
             "rspec"         => '\u{e21e}', // 
@@ -313,7 +320,7 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "tsx"           => '\u{e7ba}', // 
             "ttf"           => '\u{f031}', // 
             "twig"          => '\u{e61c}', // 
-            "txt"           => '\u{f15c}', // 
+            "txt"           => '\u{f718}', //  
             "tz"            => '\u{f410}', // 
             "tzo"           => '\u{f410}', // 
             "video"         => '\u{f03d}', // 
@@ -323,7 +330,7 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "wav"           => '\u{f001}', // 
             "webm"          => '\u{f03d}', // 
             "webp"          => '\u{f1c5}', // 
-            "windows"       => '\u{f17a}', // 
+            "windows"       => '\u{fab2}', // 
             "woff"          => '\u{f031}', // 
             "woff2"         => '\u{f031}', // 
             "xhtml"         => '\u{f13b}', // 
@@ -337,11 +344,15 @@ pub fn icon_for_file(file: &File<'_>) -> char {
             "zip"           => '\u{f410}', // 
             "zsh"           => '\u{f489}', // 
             "zsh-theme"     => '\u{f489}', // 
+            "zshenv"        => '\u{f489}', // 
+            "zprofile"      => '\u{f489}', // 
+            "zlogin"        => '\u{f489}', // 
+            "zlogout"       => '\u{f489}', // 
             "zshrc"         => '\u{f489}', // 
-            _               => '\u{f15b}'  // 
+            _               => '\u{f723}'  // 
         }
     }
     else {
-        '\u{f016}'
+        '\u{f723}'
     }
 }
